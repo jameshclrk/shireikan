@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 
-	"github.com/zekroTJA/shireikan"
+	"github.com/jameshclrk/shireikan"
 )
 
 // Object is a command returning an object

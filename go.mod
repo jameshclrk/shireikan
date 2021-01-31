@@ -1,4 +1,4 @@
-module github.com/zekroTJA/shireikan
+module github.com/jameshclrk/shireikan
 
 go 1.14
 

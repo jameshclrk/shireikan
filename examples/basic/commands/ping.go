@@ -3,7 +3,7 @@ package commands
 import (
 	"log"
 
-	"github.com/zekroTJA/shireikan"
+	"github.com/jameshclrk/shireikan"
 )
 
 // Ping is a command responding with a ping

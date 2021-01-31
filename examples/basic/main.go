@@ -7,9 +7,9 @@ import (
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/zekroTJA/shireikan"
-	"github.com/zekroTJA/shireikan/examples/basic/commands"
-	"github.com/zekroTJA/shireikan/examples/basic/middleware"
+	"github.com/jameshclrk/shireikan"
+	"github.com/jameshclrk/shireikan/examples/basic/commands"
+	"github.com/jameshclrk/shireikan/examples/basic/middleware"
 )
 
 func main() {

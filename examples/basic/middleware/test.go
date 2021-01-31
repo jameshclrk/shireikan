@@ -1,6 +1,6 @@
 package middleware
 
-import "github.com/zekroTJA/shireikan"
+import "github.com/jameshclrk/shireikan"
 
 // Test is a test command middleware.
 type Test struct {
