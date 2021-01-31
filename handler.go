@@ -74,7 +74,7 @@ type Handler interface {
 	// RegisterHandlers registers the message
 	// handlers to the passed discordgo.Session
 	// which are used to handle and parse commands.
-	RegisterHandlers(session *discordgo.Session)
+	RegisterHandlers(session Session)
 
 	// GetConfig returns the specified config
 	// object which was specified on intialization.
@@ -100,6 +100,10 @@ type Handler interface {
 	// SetObject sets a value to the handlers global
 	// object map by given key.
 	SetObject(key string, val interface{})
+}
+
+type Session interface {
+	AddHandler(interface{}) func()
 }
 
 // handler is the default implementation of Handler.
@@ -155,7 +159,7 @@ func (h *handler) RegisterMiddleware(mw Middleware) {
 	h.middlewares = append(h.middlewares, mw)
 }
 
-func (h *handler) RegisterHandlers(session *discordgo.Session) {
+func (h *handler) RegisterHandlers(session Session) {
 	session.AddHandler(func(s *discordgo.Session, e *discordgo.MessageCreate) {
 		h.messageHandler(s, e.Message, false)
 	})
