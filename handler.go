@@ -271,8 +271,19 @@ func (h *handler) messageHandler(s *discordgo.Session, msg *discordgo.Message, i
 		}
 	}
 
-	invoke := args[0][len(usedPrefix):]
-	args = args[1:]
+	var invoke string
+	if usedPrefix[len(usedPrefix)-1:] == " " {
+		if len(args) > 1 {
+			invoke = args[1]
+			args = args[2:]
+		} else {
+			invoke = ""
+			args = args[1:]
+		}
+	} else {
+		invoke = args[0][len(usedPrefix):]
+		args = args[1:]
+	}
 
 	ctx.args = ArgumentList(args)
 
