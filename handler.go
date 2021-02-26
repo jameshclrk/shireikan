@@ -33,6 +33,7 @@ var (
 // Config wraps configuration values for the CommandHandler.
 type Config struct {
 	GeneralPrefix         string `json:"general_prefix"`           // General and globally accessible prefix
+	SpaceAfterPrefix      bool   `json:"space_after_prefix"`       // Make commands run with a space after the prefix
 	InvokeToLower         bool   `json:"invoke_to_lower"`          // Lowercase command invoke befor map matching
 	AllowDM               bool   `json:"allow_dm"`                 // Allow commands to be executed in DM and GroupDM channels
 	AllowBots             bool   `json:"allow_bots"`               // Allow bot accounts to execute commands
@@ -272,7 +273,7 @@ func (h *handler) messageHandler(s *discordgo.Session, msg *discordgo.Message, i
 	}
 
 	var invoke string
-	if usedPrefix[len(usedPrefix)-1:] == " " {
+	if h.config.SpaceAfterPrefix {
 		if len(args) > 1 {
 			invoke = args[1]
 			args = args[2:]
